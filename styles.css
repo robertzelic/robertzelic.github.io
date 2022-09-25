@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+	--light0: #F8F9FA;
+	--light1: #E9ECEF;
+	--light2: #DEE2E6;
+	--light3: #CED4DA;
+	--light4: #ADB5BD;
+	--dark0: #6C757D;
+	--dark1: #495057;
+	--dark2: #343A40;
+	--dark3: #212529;
+}
+
+html {
+	font-size: 62.5%;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 600;
+	background-color: var(--light0);
+	color: var(--dark3);
+}
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	box-sizing: inherit;
+}
+
+i {
+	font-size: 3.2rem;
+	transition: .2s ease;
+}
+
+a,
+i {
+	text-decoration: none;
+	color: var(--light4);
+	transition: color .2s ease-in;
+}
+
+a:hover,
+i:hover {
+	color: var(--dark0);
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 1.2rem;
+}
+
+li {
+	line-height: 1.6;
+}
+
+.container {
+	max-width: 144rem;
+}
+
+/* Header */
+.header {
+	background-color: var(--dark3);
+	padding-block: 5rem;
+	box-shadow: 0 6px 10px rgba(0, 0, 0, 0.25);
+}
+
+.header__title,
+.header__subtitle {
+	text-align: center;
+	letter-spacing: .2rem;
+	padding-inline-start: .2rem;
+}
+
+.header__title {
+	color: var(--light2);
+	font-size: 4rem;
+}
+
+.header__subtitle {
+	color: #6C757D;
+	font-size: 2.6rem;
+}
+
+.header__github-link {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+}
+
+/* Main */
+.main {
+	margin-block: 6rem;
+}
+
+.projects {
+	margin: 0 auto;
+	padding-inline: 4rem;
+	display: grid;
+	gap: 4rem;
+}
+
+.project__image {
+	border-radius: 8px;
+	transition: all .3s;
+	overflow: hidden;
+	box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.project__image:hover {
+	box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+	transform: scale(1.04);
+}
+
+.project img {
+	display: block;
+	width: 100%;
+	cursor: pointer;
+}
+
+.project__image-title {
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.7);
+	color: var(--light3);
+	font-size: 1.4rem;
+	font-weight: 600;
+	padding-block: .8rem;
+}
+
+.project__desc {
+	text-align: center;
+	font-size: 1.6rem;
+}
+
+#lightbox {
+	position: fixed;
+	width: 100%;
+	height: 100vh;
+	top: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	visibility: hidden;
+	opacity: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	transition: .3s ease-in;
+}
+
+#lightbox img {
+	max-width: 100%;
+	cursor: pointer;
+}
+
+#lightbox.active {
+	visibility: visible;
+	opacity: 1;
+}
+
+@media (min-width: 640px) {
+	.projects {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (min-width: 1024px) {
+	.projects {
+		grid-template-columns: repeat(3, 1fr);
+		max-width: 120rem;
+	}
+
+	.github-link {
+		top: 2rem;
+		right: 2rem;
+	}
+
+	#lightbox img {
+		border-radius: 1.8rem;
+	}
+}
